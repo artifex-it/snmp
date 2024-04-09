@@ -1,0 +1,10 @@
+services:
+  app:
+    build: "./app"
+    volumes:
+        - ./app:/app # Bind cartella locale ./app
+        - type: bind # Bind cartella locale ./data
+          source: ./data
+          target: /data
+          bind:
+            create_host_path: true
