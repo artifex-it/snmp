@@ -28,7 +28,7 @@ while True:
     iterator = bulkCmd(
         SnmpEngine(),
         CommunityData('public'),
-        UdpTransportTarget(('192.168.101.250', 161)),
+        UdpTransportTarget(('demo.pysnmp.com', 161)),
         ContextData(),
         0, 50,
         ObjectType(ObjectIdentity(f'1.3.6.1.2.1.2.2.1.10')),
@@ -45,8 +45,9 @@ while True:
             break
         else:
             for varBind in varBinds:
-                print(' = '.join([x.prettyPrint() for x in varBind]))
-                values.append(varBinds[1])
+                k, v = str(varBind).split("=")
+                # print(k, v)
+                values.append(v.strip())
 
     if len(values) == 8:
         values_str = ",".join(values)
