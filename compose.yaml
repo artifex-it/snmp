@@ -2,6 +2,8 @@ version: '3.8'
 
 services:
   app:
+    environment:
+      - PYTHONUNBUFFERED=1
     build: "./app"
     volumes:
         - ./app:/app # Bind cartella locale ./app
