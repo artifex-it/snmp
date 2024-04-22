@@ -7,7 +7,7 @@ RUN apt install sqlite3
 ENV PYTHONUNBUFFERED=1
 
 WORKDIR /app
-ADD . .
+COPY . .
 RUN pip install -r requests.txt
 
 # ENTRYPOINT python
